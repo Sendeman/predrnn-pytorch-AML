@@ -1,10 +1,14 @@
+"""
+Automatically download and extract the kth dataset for handclapping action.
+Author: Paul Verhoeven
+Date: 13-05-2025 (dd-mm-yyyy)
+"""
+
 import os
 import zipfile
-
-
 import urllib.request
 
-def download_and_extract_handclapping(action: str):
+def download_and_extract_handclapping(action: str) -> None:
     """
     Automatically download and extract the kth dataset for a specific action.
     """
@@ -28,7 +32,7 @@ def download_and_extract_handclapping(action: str):
     print()
 
 
-
+# All the kth action/movement types
 movement_types = ['handclapping', 'handwaving', 'walking', 'running', 'jogging', 'boxing']
 for action in movement_types:
     download_and_extract_handclapping(action)
