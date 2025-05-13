@@ -25,6 +25,7 @@ def download_and_extract_handclapping(action: str):
 
     os.remove(zip_path)
     print(f"{action}.zip file removed.")
+    print()
 
 
 
