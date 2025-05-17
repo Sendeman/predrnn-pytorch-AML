@@ -33,12 +33,8 @@ class AutoencoderModel(nn.Module):
         )
 
     def forward(self, x):
-        print("prior:", x.shape)
         encoded = self.encoder(x)
-        print("encoded:", encoded.shape)
         latent = self.fc_enc(self.flatten(encoded))
-        print("latent:", latent.shape)
         decoded = self.fc_dec(latent).view(-1, 128, 15, 20)
         reconstructed = self.decoder(decoded)
-        print("reconstructed:", reconstructed.shape)
         return reconstructed
