@@ -1,3 +1,9 @@
+"""
+Classes for the dataset (later used for the dataloaders) of the KTH dataset.
+Author: Paul Verhoeven & Sander Geurts
+Date: 16-05-2025 (dd-mm-yyyy)
+"""
+
 import torch
 import numpy as np
 from torch.utils.data import Dataset, DataLoader

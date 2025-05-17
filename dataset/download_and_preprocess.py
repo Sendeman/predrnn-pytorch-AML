@@ -12,7 +12,7 @@ from torch import Tensor, save
 import numpy as np
 from pathlib import Path
 
-def download_and_extract(action: str) -> None:
+def download_and_extract(action: str, overwrite: bool = False) -> bool:
     """
     Automatically download and extract the kth dataset for a specific action.
     """
@@ -20,6 +20,9 @@ def download_and_extract(action: str) -> None:
     dest_folder = Path("dataset") / "KTH_data" / action
     zip_path = dest_folder / f"{action}.zip"
     
+    if dest_folder.exists() and not overwrite:  # "Dataset already exists at dest_folder. Use overwrite=True to re-download.
+        return False
+
     dest_folder.mkdir(parents=True, exist_ok=True)
     if not zip_path.exists():
         urllib.request.urlretrieve(url, zip_path)
@@ -29,7 +32,7 @@ def download_and_extract(action: str) -> None:
 
     zip_path.unlink()
 
-def extract_and_save_frames(action: str) -> None:
+def extract_and_save_frames(action: str, extraction: bool) -> None:
     """
     Extract the frames from the kth dataset and save them as images. This is done as the dataset is too large to be used as a video.
     """
