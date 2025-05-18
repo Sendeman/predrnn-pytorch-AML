@@ -1,11 +1,17 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from pathlib import Path
 
 class AutoencoderModel(nn.Module):
-    def __init__(self, latent_dim=100):
+    def __init__(self, latent_dim:int=100, epochs:int = 150, batch_size:int = 64, learning_rate:float = 1e-3):
+        
         super(AutoencoderModel, self).__init__()
         self.latent_dim = latent_dim
+        self.epochs = epochs
+        self.batch_size = batch_size
+        self.learning_rate = learning_rate
+        self.trained_epochs = 0
 
         # Encoder
         self.encoder = nn.Sequential(
@@ -38,3 +44,12 @@ class AutoencoderModel(nn.Module):
         decoded = self.fc_dec(latent).view(-1, 128, 15, 20)
         reconstructed = self.decoder(decoded)
         return reconstructed
+    
+
+    def save(self, folder:Path = None):
+        # TODO: UGLY NAME BE SMARTER THAN THIS.
+        if folder is None:
+            folder = Path("autoencoder") / "models" 
+        
+        folder.mkdir(parents=True, exist_ok=True)
+        torch.save(self.state_dict(), folder/f"{self.latent_dim}_{self.trained_epochs}_{self.learning_rate}_{self.batch_size}_autoencoder.pt")
