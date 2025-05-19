@@ -46,10 +46,6 @@ class AutoencoderModel(nn.Module):
         return reconstructed
     
 
-    def save(self, folder:Path = None):
-        # TODO: UGLY NAME BE SMARTER THAN THIS.
-        if folder is None:
-            folder = Path("autoencoder") / "models" 
-        
+    def save(self, folder:Path = Path("autoencoder") / "models", filename:str = "autoencoder"):
         folder.mkdir(parents=True, exist_ok=True)
-        torch.save(self.state_dict(), folder/f"{self.latent_dim}_{self.trained_epochs}_{self.learning_rate}_{self.batch_size}_autoencoder.pt")
+        torch.save(self.state_dict(), folder/f"{filename}.pt")
