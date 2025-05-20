@@ -15,6 +15,9 @@ from pathlib import Path
 def download_and_extract(action: str, overwrite: bool = False) -> bool:
     """
     Automatically download and extract the kth dataset for a specific action.
+    Args:
+        action (str): The action to download (e.g., "handclapping").
+        overwrite (bool): If True, overwrite the existing dataset. Default is False.
     """
     url = f"http://www.csc.kth.se/cvap/actions/{action}.zip"
     dest_folder = Path("dataset") / "KTH_data" / action
@@ -35,6 +38,9 @@ def download_and_extract(action: str, overwrite: bool = False) -> bool:
 def extract_and_save_frames(action: str, extraction: bool) -> None:
     """
     Extract the frames from the kth dataset and save them as images. This is done as the dataset is too large to be used as a video.
+    Args:
+        action (str): The action to process (e.g., "handclapping").
+        extraction (bool): If True, extract the frames from the videos.
     """
     folder = Path("dataset") / "KTH_data" / action
 

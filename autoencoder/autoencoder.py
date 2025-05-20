@@ -5,6 +5,15 @@ from pathlib import Path
 
 class AutoencoderModel(nn.Module):
     def __init__(self, latent_dim:int=100, epochs:int = 150, batch_size:int = 64, learning_rate:float = 1e-3):
+        """
+        Autoencoder model for image reconstruction.
+        Args:
+            latent_dim (int): Dimension of the latent space.
+            epochs (int): Number of training epochs.
+            batch_size (int): Size of each training batch.
+            learning_rate (float): Learning rate for the optimizer.
+        """
+
         
         super(AutoencoderModel, self).__init__()
         self.latent_dim = latent_dim
@@ -39,6 +48,13 @@ class AutoencoderModel(nn.Module):
         )
 
     def forward(self, x):
+        """
+        Forward pass through the autoencoder.
+        Args:
+            x (torch.Tensor): Input tensor of shape (batch_size, 1, 120, 160).
+        Returns:
+            torch.Tensor: Reconstructed tensor of shape (batch_size, 1, 120, 160).
+        """
         encoded = self.encoder(x)
         latent = self.fc_enc(self.flatten(encoded))
         decoded = self.fc_dec(latent).view(-1, 128, 15, 20)
@@ -47,5 +63,11 @@ class AutoencoderModel(nn.Module):
     
 
     def save(self, folder:Path = Path("autoencoder") / "models", filename:str = "autoencoder"):
+        """
+        Save the model state dictionary to a file.
+        Args:
+            folder (Path): Directory to save the model.
+            filename (str): Name of the file to save the model.
+        """
         folder.mkdir(parents=True, exist_ok=True)
         torch.save(self.state_dict(), folder/f"{filename}.pt")
