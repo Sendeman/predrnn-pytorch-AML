@@ -16,7 +16,6 @@ class AutoencoderModel(nn.Module):
 
         
         super(AutoencoderModel, self).__init__()
-        self.latent_dim = latent_dim
         self.epochs = epochs
         self.batch_size = batch_size
         self.learning_rate = learning_rate
@@ -24,28 +23,40 @@ class AutoencoderModel(nn.Module):
 
         # Encoder
         self.encoder = nn.Sequential(
-            nn.Conv2d(1, 32, kernel_size=3, stride=2, padding=1),  # 120x160 -> 60x80
-            nn.ReLU(),
-            nn.Conv2d(32, 64, kernel_size=3, stride=2, padding=1),  # 60x80 -> 30x40
-            nn.ReLU(),
-            nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1),  # 30x40 -> 15x20
-            nn.ReLU(),
+            nn.Conv2d(1, 8, kernel_size=3, stride=1, padding=1), # 1x120x160 -> 32 x 120 x 160
+            nn.LeakyReLU(),
+
+            nn.Conv2d(8, 16, kernel_size=3, stride=1, padding=1), # 32x120x160 -> 32x60x80
+            nn.MaxPool2d(kernel_size=2, stride=2),
+            nn.LeakyReLU(),
+
+            nn.Conv2d(16, 32, kernel_size=3, stride=1, padding=1), # 2x120x160 -> 4x60x80
+            nn.MaxPool2d(kernel_size=2, stride=2),
+            nn.LeakyReLU(),
+
+            nn.Conv2d(32, 32, kernel_size=3, stride=1, padding=1), # 2x120x160 -> 4x60x80
+            nn.MaxPool2d(kernel_size=2, stride=2),
+            nn.LeakyReLU()
         )
 
-        # Flatten and project to latent space
-        self.flatten = nn.Flatten()
-        self.fc_enc = nn.Linear(128 * 15 * 20, latent_dim)
 
-        # Decoder
-        self.fc_dec = nn.Linear(latent_dim, 128 * 15 * 20)
         self.decoder = nn.Sequential(
-            nn.ConvTranspose2d(128, 64, kernel_size=4, stride=2, padding=1),  # 15x20 -> 30x40
-            nn.ReLU(),
-            nn.ConvTranspose2d(64, 32, kernel_size=4, stride=2, padding=1),   # 30x40 -> 60x80
-            nn.ReLU(),
-            nn.ConvTranspose2d(32, 1, kernel_size=4, stride=2, padding=1),    # 60x80 -> 120x160
-            nn.Sigmoid() # Images are normalized to [0, 1]
+            nn.Upsample(scale_factor=2, mode='nearest'),
+            nn.ConvTranspose2d(32, 32, kernel_size=3, stride=1, padding=1),  # 32x15x20 -> 16x30x40
+            nn.LeakyReLU(),
+
+            nn.Upsample(scale_factor=2, mode='nearest'),
+            nn.ConvTranspose2d(32, 16, kernel_size=3, stride=1, padding=1),  # 16x30x40 -> 16x60x80
+            nn.LeakyReLU(),
+
+            nn.Upsample(scale_factor=2, mode='nearest'),
+            nn.ConvTranspose2d(16, 8, kernel_size=3, stride=1, padding=1),  # 16x60x80 -> 8x120x160
+            nn.LeakyReLU(),
+
+            nn.Conv2d(8, 1, kernel_size=3, stride=1, padding=1),  # 4x120x160 -> 1x120x160
+            nn.Sigmoid()  # Pixels are within [0, 1]
         )
+
 
     def forward(self, x):
         """
@@ -56,10 +67,8 @@ class AutoencoderModel(nn.Module):
             torch.Tensor: Reconstructed tensor of shape (batch_size, 1, 120, 160).
         """
         encoded = self.encoder(x)
-        latent = self.fc_enc(self.flatten(encoded))
-        decoded = self.fc_dec(latent).view(-1, 128, 15, 20)
-        reconstructed = self.decoder(decoded)
-        return reconstructed
+        decoded = self.decoder(encoded)
+        return decoded
     
 
     def save(self, folder:Path = Path("autoencoder") / "models", filename:str = "autoencoder"):
@@ -71,3 +80,7 @@ class AutoencoderModel(nn.Module):
         """
         folder.mkdir(parents=True, exist_ok=True)
         torch.save(self.state_dict(), folder/f"{filename}.pt")
+
+    
+    def load(self, filepath: Path):
+        self.load_state_dict(torch.load(filepath))
