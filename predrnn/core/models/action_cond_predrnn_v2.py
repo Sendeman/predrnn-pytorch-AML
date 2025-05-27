@@ -2,7 +2,7 @@ __author__ = 'yunbo'
 
 import torch
 import torch.nn as nn
-from core.layers.SpatioTemporalLSTMCell_v2_action import SpatioTemporalLSTMCell
+from core.layers.SpatioTemporalLSTMCell_v2_action import SpatioTemporalGRUCell
 import torch.nn.functional as F
 
 
@@ -52,7 +52,7 @@ class RNN(nn.Module):
             else:
                 in_channel = num_hidden[i - 1]
             cell_list.append(
-                SpatioTemporalLSTMCell(in_channel, num_hidden[i], self.rnn_width,
+                SpatioTemporalGRUCell(in_channel, num_hidden[i], self.rnn_width,
                                        configs.filter_size, configs.stride, configs.layer_norm)
             )
         self.cell_list = nn.ModuleList(cell_list)
