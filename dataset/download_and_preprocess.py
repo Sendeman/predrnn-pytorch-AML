@@ -12,16 +12,16 @@ from torch import Tensor, save
 import numpy as np
 from pathlib import Path
 
-def download_and_extract(action: str, overwrite: bool = False) -> bool:
+def download_and_extract(overwrite: bool = False) -> bool:
     """
     Automatically download and extract the kth dataset for a specific action.
     Args:
         action (str): The action to download (e.g., "handclapping").
         overwrite (bool): If True, overwrite the existing dataset. Default is False.
     """
-    url = f"http://www.csc.kth.se/cvap/actions/{action}.zip"
-    dest_folder = Path("dataset") / "KTH_data" / action
-    zip_path = dest_folder / f"{action}.zip"
+    url = f"http://www.csc.kth.se/cvap/actions/running.zip"
+    dest_folder = Path("dataset") / "KTH_data_running"
+    zip_path = dest_folder / f"running.zip"
     
     if dest_folder.exists() and not overwrite:  # "Dataset already exists at dest_folder. Use overwrite=True to re-download.
         return False
@@ -35,14 +35,14 @@ def download_and_extract(action: str, overwrite: bool = False) -> bool:
 
     zip_path.unlink()
 
-def extract_and_save_frames(action: str, extraction: bool) -> None:
+def extract_and_save_frames() -> None:
     """
     Extract the frames from the kth dataset and save them as images. This is done as the dataset is too large to be used as a video.
     Args:
         action (str): The action to process (e.g., "handclapping").
         extraction (bool): If True, extract the frames from the videos.
     """
-    folder = Path("dataset") / "KTH_data" / action
+    folder = Path("dataset") / "KTH_data_running"
 
     for video_file in folder.glob("*.avi"):
         cap = cv2.VideoCapture(str(video_file))

@@ -1,4 +1,4 @@
-dataset/KTH_data/
+dataset/KTH_data_running/
 test.py
 __pycache__/
 autoencoder/models/model_*

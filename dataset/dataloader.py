@@ -45,7 +45,7 @@ class KTHDataset(Dataset):
             tuple: (sample, label) where sample is the loaded data and label is the corresponding action label.
         """
         
-        sample = self.paths[idx]#self.load_data(self.paths[idx])
+        sample = torch.load(self.paths[idx])
         label = self.labels[idx]
 
         if self.transform:
