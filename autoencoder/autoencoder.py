@@ -4,7 +4,7 @@ import torch.nn.functional as F
 from pathlib import Path
 
 class AutoencoderModel(nn.Module):
-    def __init__(self, latent_dim:int=100, epochs:int = 150):
+    def __init__(self, epochs:int=150, encoder:nn.Sequential=None, decoder:nn.Sequential=None):
         """
         Autoencoder model for image reconstruction.
         Args:
@@ -20,38 +20,8 @@ class AutoencoderModel(nn.Module):
         self.epochs = epochs
         self.trained_epochs = 0
         
-
-        self.encoder = nn.Sequential(
-            nn.Conv2d(1, 64, kernel_size=3, stride=1, padding=1), # 1x120x160 -> 32 x 120 x 160
-            nn.LeakyReLU(),
-
-            nn.Conv2d(64, 64, kernel_size=3, stride=4, padding=1), # 32x120x160 -> 64x30x40
-            nn.LeakyReLU(),
-
-            nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1), # 64x30x40 -> 128x15x20
-            nn.LeakyReLU(),
-
-            nn.Flatten(),
-            nn.Linear(128 * 20 * 15, latent_dim)
-        )
-
-        
-        self.decoder = nn.Sequential(
-            nn.Linear(latent_dim, 128 * 20 * 15),
-            nn.Unflatten(1, (128, 15, 20)),
-
-            nn.ConvTranspose2d(128, 64, kernel_size=4, stride=2, padding=1),  # 128x15x20 -> 64x30x40
-            nn.LeakyReLU(),
-
-            nn.ConvTranspose2d(64, 32, kernel_size=4, stride=2, padding=1),  # 64x30x40 -> 32x60x80
-            nn.LeakyReLU(),
-
-            nn.Conv2d (32, 32, kernel_size=3, stride=1, padding=1),
-            nn.LeakyReLU(),
-            
-            nn.ConvTranspose2d (32, 1, kernel_size=4, stride=2, padding=1),  # 32x60x80-> 1x120x160
-            nn.Sigmoid(),
-        )
+        self.encoder = encoder
+        self.decoder = decoder
 
 
     def forward(self, x):
