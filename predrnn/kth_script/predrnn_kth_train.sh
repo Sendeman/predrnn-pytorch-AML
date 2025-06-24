@@ -2,10 +2,10 @@ export CUDA_VISIBLE_DEVICES=0
 cd ..
 python -u run.py \
     --is_training 1 \
-    --device cuda \
+    --device cpu \
     --dataset_name action \
-    --train_data_paths /workspace/wuhaixu/predrnn/data/kth_action \
-    --valid_data_paths /workspace/wuhaixu/predrnn/data/kth_action \
+    --train_data_paths /Users/maxneerken/Documents/aml/predrnn-pytorch-AML/dataset/kth \
+    --valid_data_paths /Users/maxneerken/Documents/aml/predrnn-pytorch-AML/dataset/kth \
     --save_dir checkpoints/kth_predrnn \
     --gen_frm_dir results/kth_predrnn \
     --model_name predrnn \

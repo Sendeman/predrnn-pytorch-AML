@@ -84,8 +84,8 @@ class ActionFrameInfo:
 class DataProcess:
     def __init__(self, input_param):
         self.paths = input_param['paths']  # path to parent folder containing category dirs
-        self.category_1 = ['boxing', 'handclapping', 'handwaving', 'walking']
-        self.category_2 = ['jogging', 'running']
+        self.category_1 = [] # ['boxing', 'handclapping', 'handwaving', 'walking']
+        self.category_2 = ['running'] # ['jogging', 'running']
         self.categories = self.category_1 + self.category_2
         self.image_width = input_param['image_width']
 
@@ -184,8 +184,8 @@ class DataProcess:
             seq_start_idx = seq_end_idx - self.seq_len + 1
             if frames_person_mark[seq_end_idx] == frames_person_mark[seq_start_idx]:
                 # Get person ID at the start and end of this sequence (of seq_len)
-                end = int(frames_file_name[seq_end_idx][6:10])
-                start = int(frames_file_name[seq_start_idx][6:10])
+                end = int(frames_file_name[seq_end_idx][6:9])
+                start = int(frames_file_name[seq_start_idx][6:9])
                 
                 # TODO: mode == 'test'
                 if end - start == self.seq_len - 1:
