@@ -54,10 +54,11 @@ class AutoencoderModel(nn.Module):
         torch.save(self.state_dict(), folder/f"{filename}.pt")
 
     
-    def load(self, filepath: Path):
+    def load(self, filepath: Path, device='cuda'):
         """
         Load the model state dictionary from a file.
         Args:
             filepath (Path): Path to the file containing the model state dictionary.
+            device: The device to load the model onto
         """
-        self.load_state_dict(torch.load(filepath))
+        self.load_state_dict(torch.load(filepath, map_location=device))

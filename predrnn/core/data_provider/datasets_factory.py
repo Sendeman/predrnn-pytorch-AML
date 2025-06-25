@@ -1,9 +1,10 @@
-from core.data_provider import kth_action, mnist, bair
+from core.data_provider import kth_action, mnist, bair, latent
 
 datasets_map = {
     'mnist': mnist,
     'action': kth_action,
     'bair': bair,
+    'latent': latent
 }
 
 
@@ -34,6 +35,25 @@ def data_provider(dataset_name, train_data_paths, valid_data_paths, batch_size,
             return test_input_handle
 
     if dataset_name == 'action':
+        input_param = {'paths': valid_data_list,
+                       'image_width': img_width,
+                       'minibatch_size': batch_size,
+                       'seq_length': seq_length,
+                       'input_data_type': 'float32',
+                       'name': dataset_name + ' iterator'}
+        input_handle = datasets_map[dataset_name].DataProcess(input_param)
+        if is_training:
+            train_input_handle = input_handle.get_train_input_handle()
+            train_input_handle.begin(do_shuffle=True)
+            test_input_handle = input_handle.get_test_input_handle()
+            test_input_handle.begin(do_shuffle=False)
+            return train_input_handle, test_input_handle
+        else:
+            test_input_handle = input_handle.get_test_input_handle()
+            test_input_handle.begin(do_shuffle=False)
+            return test_input_handle
+        
+    if dataset_name == 'latent':
         input_param = {'paths': valid_data_list,
                        'image_width': img_width,
                        'minibatch_size': batch_size,
