@@ -1,4 +1,3 @@
-dataset/encoded/*
 dataset/kth/*
 dataset/kth_processed/*
 __pycache__/
