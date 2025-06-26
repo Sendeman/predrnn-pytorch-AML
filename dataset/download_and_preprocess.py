@@ -20,7 +20,7 @@ def download_and_extract(overwrite: bool = False) -> bool:
         overwrite (bool): If True, overwrite the existing dataset. Default is False.
     """
     url = f"http://www.csc.kth.se/cvap/actions/running.zip"
-    dest_folder = Path("dataset") / "kth/running"
+    dest_folder = Path("dataset") / "kth" / "running"
     zip_path = dest_folder / f"running.zip"
     
     if dest_folder.exists() and not overwrite:  # "Dataset already exists at dest_folder. Use overwrite=True to re-download.
@@ -34,6 +34,8 @@ def download_and_extract(overwrite: bool = False) -> bool:
         zip_ref.extractall(dest_folder)
 
     zip_path.unlink()
+
+    return True
 
 def extract_and_save_frames() -> None:
     """
@@ -57,6 +59,8 @@ def extract_and_save_frames() -> None:
                 frame_file_name = f'image-{frame_idx:03}.png'
                 frame_path = frames_target_folder / frame_file_name
 
+                # Resize to 128x128
+                image = cv2.resize(image, (128, 128), image) 
                 cv2.imwrite(f'./{str(frame_path)}', image)
                 frame_idx += 1
             else:

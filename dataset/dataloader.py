@@ -44,36 +44,11 @@ class KTHDataset(Dataset):
         Returns:
             tuple: (sample, label) where sample is the loaded data and label is the corresponding action label.
         """
-        
+
         sample = torch.load(self.paths[idx])
         label = self.labels[idx]
 
         if self.transform:
             sample = self.transform(sample)
 
-        return sample, label
-   
-    
-class KTHDatasetRNN(Dataset):
-    def __init__(self, root_dir: Path = Path("dataset\KTH_data"), transform=None):
-        self.root_dir = root_dir 
-        self.transform = transform
-        self.videos = []
-        self.load_data()
-
-    def load_data(self):
-        # Load the data from the directory and populate self.data and self.labels
-        ...
-        
-
-    def __len__(self):
-        return len(self.data)
-
-    def __getitem__(self, idx):
-        sample = self.data[idx]
-        label = self.labels[idx]
-
-        if self.transform:
-            sample = self.transform(sample)
-
-        return sample, label
+        return sample#, label
