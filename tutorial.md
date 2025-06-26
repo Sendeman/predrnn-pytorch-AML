@@ -24,5 +24,5 @@ Navigeer naar ```cd predrnn/kth_script/``` met powershell/git bash/wsl en run: `
 # Latent
 Doe hetzelfde als bij de baseline maar dan met ```predrnn/latent.sh```
 
-Pas de data locaties aan naar de juiste dataset, en **kies waar het model moet worden opgeslagen** moet worden te veranderen op basis van welke architecture je traint.
-
+Pas de data locaties aan naar de juiste dataset, en **kies waar het model moet worden opgeslagen** moet worden te veranderen op basis van welke architecture je traint. \ 
+Pas ook num_hidden aan naar de latent size (i.e 64, 64, 64, 64)

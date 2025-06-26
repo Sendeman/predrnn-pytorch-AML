@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b93695c-546f-4f8b-a827-d56e61c38951" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/predrnn/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/predrnn/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tutorial.md" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,6 +75,7 @@
       <workItem from="1750775185755" duration="2877000" />
       <workItem from="1750781220386" duration="1590000" />
       <workItem from="1750931190445" duration="490000" />
+      <workItem from="1750939898099" duration="1030000" />
     </task>
     <servers />
   </component>
