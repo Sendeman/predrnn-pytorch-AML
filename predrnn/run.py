@@ -177,10 +177,16 @@ def train_wrapper(model):
 
     eta = args.sampling_start_value
 
+    patience = 10 # Number of iterations in which loss must improve to prevent early stop
+    epochs_no_improve = 0 # n iterations in which loss did not improve
+    best_loss = 100000 # high starting value
+    print('Starting training')
     for itr in range(1, args.max_iterations + 1):
         if train_input_handle.no_batch_left():
             train_input_handle.begin(do_shuffle=True)
         ims = train_input_handle.get_batch()
+        # PredRNN doet geen regression maar classification achtige shit. Het voorspelt waar de patches toe gaan. 
+        # Dit hoeft geen probleem te zijn voor onze latent predRNN
         ims = preprocess.reshape_patch(ims, args.patch_size)
 
         if args.reverse_scheduled_sampling == 1:
@@ -194,7 +200,19 @@ def train_wrapper(model):
             model.save(itr)
 
         if itr % args.test_interval == 0:
-            trainer.test(model, test_input_handle, args, itr)
+            loss = trainer.test(model, test_input_handle, args, itr)
+            
+            ### Early stopping ###
+            if loss > best_loss:
+                epochs_no_improve += 1
+                
+                if epochs_no_improve >= patience:
+                    model.save(itr)
+                    break
+            else:
+                epochs_no_improve = 0
+                best_loss = loss
+            ######
 
         train_input_handle.next()
 

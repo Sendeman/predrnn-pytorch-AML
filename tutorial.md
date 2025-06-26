@@ -19,10 +19,10 @@ Set the train_data_paths and valid_data_paths to absolute location like this: \
 
 En eventueel de max_iterations parameter
 
-Navigeer naar cd predrnn/kth_script/ met powershell/git bash/wsl en run: ```sh predrnn_kth_train.sh```
+Navigeer naar ```cd predrnn/kth_script/``` met powershell/git bash/wsl en run: ```sh predrnn_kth_train.sh```
 
 # Latent
 Doe hetzelfde als bij de baseline maar dan met ```predrnn/latent.sh```
 
-Vergeet niet nu ook de plek waar het model opgeslagen moet worden te veranderen op basis van welke architecture je traint.
+Pas de data locaties aan naar de juiste dataset, en **kies waar het model moet worden opgeslagen** moet worden te veranderen op basis van welke architecture je traint.
 

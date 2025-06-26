@@ -144,3 +144,5 @@ def test(model, test_input_handle, configs, itr):
     print('lpips per frame: ' + str(np.mean(lp)))
     for i in range(configs.total_length - configs.input_length):
         print(lp[i])
+    
+    return avg_mse

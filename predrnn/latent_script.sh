@@ -2,15 +2,15 @@ export CUDA_VISIBLE_DEVICES=0
 
 python -u run.py \
     --is_training 1 \
-    --device cpu \
+    --device mps \
     --dataset_name latent \
-    --train_data_paths /Users/maxneerken/Documents/aml/predrnn-pytorch-AML/dataset/encoded/latent_30x40 \
-    --valid_data_paths /Users/maxneerken/Documents/aml/predrnn-pytorch-AML/dataset/encoded/latent_30x40 \
+    --train_data_paths /Users/maxneerken/Documents/aml/predrnn-pytorch-AML/dataset/encoded/64 \
+    --valid_data_paths /Users/maxneerken/Documents/aml/predrnn-pytorch-AML/dataset/encoded/64 \
     --save_dir checkpoints/latent_predrnn \
     --gen_frm_dir results/latent_predrnn \
     --model_name predrnn \
     --reverse_input 1 \
-    --img_width 40 \
+    --img_width 64 \
     --img_channel 1 \
     --input_length 10 \
     --total_length 20 \
