@@ -196,12 +196,12 @@ def train_wrapper(model):
 
         trainer.train(model, ims, real_input_flag, args, itr)
 
-        if itr % args.snapshot_interval == 0:
+        if  itr % args.snapshot_interval == 0:
             model.save(itr)
 
-        if itr % args.test_interval == 0:
+        if  itr % args.test_interval == 0:
             loss = trainer.test(model, test_input_handle, args, itr)
-            
+
             ### Early stopping ###
             if loss > best_loss:
                 epochs_no_improve += 1
@@ -212,6 +212,7 @@ def train_wrapper(model):
             else:
                 epochs_no_improve = 0
                 best_loss = loss
+            print(f"iteration {itr} no_improve: {epochs_no_improve}")
             ######
 
         train_input_handle.next()

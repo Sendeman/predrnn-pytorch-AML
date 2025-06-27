@@ -169,22 +169,6 @@ class DataProcess:
         for i, frame in enumerate(self.generate_frames(path, mode_person_ids)):
             frame_tensor = torch.load(frame.file_path)
             
-            ### Resize to square ###
-            # Get the original dimensions
-            height, width = frame_tensor.shape
-
-            # Create a square tensor with zeros
-            square_tensor = torch.zeros((self.image_width, self.image_width), dtype=frame_tensor.dtype)
-
-            # Calculate the position to place the original tensor
-            y_offset = (self.image_width - height) // 2
-            x_offset = (self.image_width - width) // 2
-
-            # Place the original tensor in the center of the square tensor
-            square_tensor[y_offset:y_offset + height, x_offset:x_offset + width] = frame_tensor
-            frame_tensor = square_tensor
-            ### End Resize ###
-            
             if frame_tensor.shape != (self.image_width, self.image_width):
                 raise ValueError(f"Shape error: Expected ({self.image_width}, {self.image_width}), but got {frame_tensor.shape}")
 
@@ -221,6 +205,7 @@ class DataProcess:
 
         print("there are " + str(data.shape[0]) + " pictures")
         print("there are " + str(len(indices)) + " sequences")
+        
         return data, indices
 
     def get_train_input_handle(self):

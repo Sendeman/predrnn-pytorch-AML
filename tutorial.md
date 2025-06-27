@@ -9,7 +9,7 @@ Pull de laatste versie van master
 
 
 # Baseline
-In ```predrnn/kth_script/predrnn_kth_train.sh```:
+In ```predrnn/kth_script/predrnn_v2_kth_train.sh```:
 
 Make sure device is set to your gpu: ```—device cuda \```
 

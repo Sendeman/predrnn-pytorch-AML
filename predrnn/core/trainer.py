@@ -7,8 +7,7 @@ from core.utils import preprocess, metrics
 import lpips
 import torch
 
-loss_fn_alex = lpips.LPIPS(net='alex')
-
+loss_fn_alex = lpips.LPIPS(net='vgg')
 
 def train(model, ims, real_input_flag, configs, itr):
     cost = model.train(ims, real_input_flag)
@@ -103,7 +102,7 @@ def test(model, test_input_handle, configs, itr):
 
             psnr[i] += metrics.batch_psnr(pred_frm, real_frm)
             for b in range(configs.batch_size):
-                score, _ = compare_ssim(pred_frm[b], real_frm[b], full=True, multichannel=True)
+                score, _ = compare_ssim(pred_frm[b], real_frm[b], full=True, channel_axis=2)
                 ssim[i] += score
 
         # save prediction examples

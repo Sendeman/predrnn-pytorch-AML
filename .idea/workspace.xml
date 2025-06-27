@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b93695c-546f-4f8b-a827-d56e61c38951" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/tutorial.md" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoencoder.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoder.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/predrnn/core/data_provider/kth_action.py" beforeDir="false" afterPath="$PROJECT_DIR$/predrnn/core/data_provider/kth_action.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/predrnn/core/data_provider/latent.py" beforeDir="false" afterPath="$PROJECT_DIR$/predrnn/core/data_provider/latent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/predrnn/core/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/predrnn/core/trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/predrnn/kth_script/predrnn_v2_kth_train.sh" beforeDir="false" afterPath="$PROJECT_DIR$/predrnn/kth_script/predrnn_v2_kth_train.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/predrnn/latent_script.sh" beforeDir="false" afterPath="$PROJECT_DIR$/predrnn/latent_script.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/predrnn/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/predrnn/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +82,8 @@
       <workItem from="1750775185755" duration="2877000" />
       <workItem from="1750781220386" duration="1590000" />
       <workItem from="1750931190445" duration="490000" />
-      <workItem from="1750939898099" duration="1030000" />
+      <workItem from="1750939898099" duration="1946000" />
+      <workItem from="1751019577924" duration="1567000" />
     </task>
     <servers />
   </component>

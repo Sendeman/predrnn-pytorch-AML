@@ -204,6 +204,7 @@ class DataProcess:
 
         print("there are " + str(data.shape[0]) + " pictures")
         print("there are " + str(len(indices)) + " sequences")
+        
         return data, indices
 
     def get_train_input_handle(self):

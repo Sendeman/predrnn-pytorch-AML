@@ -1,31 +1,33 @@
-export CUDA_VISIBLE_DEVICES=0
-
+export CUDA_VISIBLE_DEVICES=4
 python -u run.py \
     --is_training 1 \
     --device mps \
     --dataset_name latent \
-    --train_data_paths /Users/maxneerken/Documents/aml/predrnn-pytorch-AML/dataset/encoded/64 \
-    --valid_data_paths /Users/maxneerken/Documents/aml/predrnn-pytorch-AML/dataset/encoded/64 \
-    --save_dir checkpoints/latent_predrnn \
-    --gen_frm_dir results/latent_predrnn \
-    --model_name predrnn \
+    --train_data_paths /Users/maxneerken/Documents/aml/predrnn-pytorch-AML/dataset/encoded/16 \
+    --valid_data_paths /Users/maxneerken/Documents/aml/predrnn-pytorch-AML/dataset/encoded/16 \
+    --save_dir checkpoints/latent_16/kth_predrnn_v2 \
+    --gen_frm_dir results/latent_16_kth_predrnn_v2 \
+    --model_name predrnn_v2 \
+    --visual 0 \
     --reverse_input 1 \
-    --img_width 64 \
+    --img_width 16 \
     --img_channel 1 \
     --input_length 10 \
     --total_length 20 \
-    --num_hidden 128,128,128,128 \
+    --num_hidden 16,16,16,16 \
     --filter_size 5 \
     --stride 1 \
     --patch_size 4 \
     --layer_norm 0 \
-    --scheduled_sampling 1 \
-    --sampling_stop_iter 50000 \
-    --sampling_start_value 1.0 \
-    --sampling_changing_rate 0.00002 \
-    --lr 0.0003 \
+    --decouple_beta 0.01 \
+    --reverse_scheduled_sampling 1 \
+    --r_sampling_step_1 5000 \
+    --r_sampling_step_2 50000 \
+    --r_exp_alpha 2000 \
+    --lr 0.0001 \
     --batch_size 4 \
     --max_iterations 80000 \
     --display_interval 100 \
     --test_interval 5000 \
-    --snapshot_interval 5000
+    --snapshot_interval 5000 \
+#    --pretrained_model ./checkpoints/kth_predrnn_v2/kth_model.ckpt

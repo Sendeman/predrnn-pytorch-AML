@@ -1,5 +1,7 @@
 dataset/kth/*
 dataset/kth_processed/*
+predrnn/checkpoints/*
+predrnn/results/*
 __pycache__/
 autoencoder/models/Current_best.pt
 autoencoder_study.db
