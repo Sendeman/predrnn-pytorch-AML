@@ -1,12 +1,12 @@
-export CUDA_VISIBLE_DEVICES=4
+export CUDA_VISIBLE_DEVICES=0
 python -u run.py \
     --is_training 1 \
-    --device mps \
+    --device cuda \
     --dataset_name latent \
-    --train_data_paths /Users/maxneerken/Documents/aml/predrnn-pytorch-AML/dataset/encoded/16 \
-    --valid_data_paths /Users/maxneerken/Documents/aml/predrnn-pytorch-AML/dataset/encoded/16 \
-    --save_dir checkpoints/latent_16/kth_predrnn_v2 \
-    --gen_frm_dir results/latent_16_kth_predrnn_v2 \
+    --train_data_paths \\Users\\Paul\\Documents\\School\\Master\\AML\\predrnn-pytorch-AML\\dataset\\encoded\\16 \
+    --valid_data_paths \\Users\\Paul\\Documents\\School\\Master\\AML\\predrnn-pytorch-AML\\dataset\\encoded\\16 \
+    --save_dir checkpoints/kth_predrnn_v2_16 \
+    --gen_frm_dir results/kth_predrnn_v2_16 \
     --model_name predrnn_v2 \
     --visual 0 \
     --reverse_input 1 \
@@ -26,8 +26,6 @@ python -u run.py \
     --r_exp_alpha 2000 \
     --lr 0.0001 \
     --batch_size 4 \
-    --max_iterations 80000 \
+    --max_iterations 500 \
     --display_interval 100 \
-    --test_interval 5000 \
-    --snapshot_interval 5000 \
-#    --pretrained_model ./checkpoints/kth_predrnn_v2/kth_model.ckpt
+    --snapshot_interval 100 \
