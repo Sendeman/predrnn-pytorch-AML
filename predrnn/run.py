@@ -196,7 +196,7 @@ def train_wrapper(model):
 
         trainer.train(model, ims, real_input_flag, args, itr)
 
-        if  itr % args.snapshot_interval == 0:
+        if itr % args.snapshot_interval == 0:
             model.save(itr)
 
         if  itr % args.test_interval == 0:
