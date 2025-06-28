@@ -1,99 +1,256 @@
 16x16:
 training:
-2025-06-27 16:29:09 itr: 100
-training loss: 0.007120668
-save model to checkpoints/kth_predrnn_v2_16\model.ckpt-100
-2025-06-27 16:30:02 itr: 200
-training loss: 0.010392493
-save model to checkpoints/kth_predrnn_v2_16\model.ckpt-200
-2025-06-27 16:30:55 itr: 300
-training loss: 0.0063403784
-save model to checkpoints/kth_predrnn_v2_16\model.ckpt-300
-2025-06-27 16:31:50 itr: 400
-training loss: 0.0075188694
-save model to checkpoints/kth_predrnn_v2_16\model.ckpt-400
-2025-06-27 16:32:46 itr: 500
-training loss: 0.0061721727
-save model to checkpoints/kth_predrnn_v2_16\model.ckpt-500
+2025-06-28 13:38:16 itr: 100
+training loss: 0.0054770727
+save model to checkpoints/kth_predrnn_16\model.ckpt-100
+2025-06-28 13:39:09 itr: 200
+training loss: 0.006089544
+save model to checkpoints/kth_predrnn_16\model.ckpt-200
+2025-06-28 13:40:02 itr: 300
+training loss: 0.006370734
+save model to checkpoints/kth_predrnn_16\model.ckpt-300
+2025-06-28 13:40:54 itr: 400
+training loss: 0.009099467
+save model to checkpoints/kth_predrnn_16\model.ckpt-400
+2025-06-28 13:41:47 itr: 500
+training loss: 0.0062842546
+save model to checkpoints/kth_predrnn_16\model.ckpt-500
+2025-06-28 13:42:40 itr: 600
+training loss: 0.0054517887
+save model to checkpoints/kth_predrnn_16\model.ckpt-600
+2025-06-28 13:43:33 itr: 700
+training loss: 0.0077774054
+save model to checkpoints/kth_predrnn_16\model.ckpt-700
+2025-06-28 13:44:25 itr: 800
+training loss: 0.008969208
+save model to checkpoints/kth_predrnn_16\model.ckpt-800
+2025-06-28 13:45:17 itr: 900
+training loss: 0.005554761
+save model to checkpoints/kth_predrnn_16\model.ckpt-900
+2025-06-28 13:46:10 itr: 1000
+training loss: 0.0076662633
+save model to checkpoints/kth_predrnn_16\model.ckpt-1000
+2025-06-28 13:47:02 itr: 1100
+training loss: 0.004327446
+save model to checkpoints/kth_predrnn_16\model.ckpt-1100
+2025-06-28 13:47:54 itr: 1200
+training loss: 0.012829959
+save model to checkpoints/kth_predrnn_16\model.ckpt-1200
+2025-06-28 13:48:46 itr: 1300
+training loss: 0.00456677
+save model to checkpoints/kth_predrnn_16\model.ckpt-1300
+2025-06-28 13:49:38 itr: 1400
+training loss: 0.006942857
+save model to checkpoints/kth_predrnn_16\model.ckpt-1400
+2025-06-28 13:50:30 itr: 1500
+training loss: 0.0013952733
+save model to checkpoints/kth_predrnn_16\model.ckpt-1500
+2025-06-28 13:51:23 itr: 1600
+training loss: 0.0039264737
+save model to checkpoints/kth_predrnn_16\model.ckpt-1600
+2025-06-28 13:52:15 itr: 1700
+training loss: 0.0026079225
+save model to checkpoints/kth_predrnn_16\model.ckpt-1700
+2025-06-28 13:53:07 itr: 1800
+training loss: 0.005483024
+save model to checkpoints/kth_predrnn_16\model.ckpt-1800
+2025-06-28 13:54:00 itr: 1900
+training loss: 0.0026263008
+save model to checkpoints/kth_predrnn_16\model.ckpt-1900
+2025-06-28 13:54:53 itr: 2000
+training loss: 0.0015375137
+save model to checkpoints/kth_predrnn_16\model.ckpt-2000
 
 
 
 32x32:
 training:
-Starting training
-2025-06-27 16:47:17 itr: 100
-training loss: 2.0726113
-save model to checkpoints/kth_predrnn_v2_32\model.ckpt-100
-2025-06-27 16:48:14 itr: 200
-training loss: 6.4736495
-save model to checkpoints/kth_predrnn_v2_32\model.ckpt-200
-2025-06-27 16:49:12 itr: 300
-training loss: 0.7467022
-save model to checkpoints/kth_predrnn_v2_32\model.ckpt-300
-2025-06-27 16:50:09 itr: 400
-training loss: 3.082911
-save model to checkpoints/kth_predrnn_v2_32\model.ckpt-400
-2025-06-27 16:51:07 itr: 500
-training loss: 1.1672976
-save model to checkpoints/kth_predrnn_v2_32\model.ckpt-500
-2025-06-27 16:52:04 itr: 600
-training loss: 0.4529639
-save model to checkpoints/kth_predrnn_v2_32\model.ckpt-600
-2025-06-27 16:53:02 itr: 700
-training loss: 1.3222619
-save model to checkpoints/kth_predrnn_v2_32\model.ckpt-700
-2025-06-27 16:53:59 itr: 800
-training loss: 0.28192687
-save model to checkpoints/kth_predrnn_v2_32\model.ckpt-800
-2025-06-27 16:54:57 itr: 900
-training loss: 1.2126989
-save model to checkpoints/kth_predrnn_v2_32\model.ckpt-900
-2025-06-27 16:55:54 itr: 1000
-training loss: 0.33710575
-save model to checkpoints/kth_predrnn_v2_32\model.ckpt-1000
-2025-06-27 16:56:51 itr: 1100
-training loss: 0.37191036
-save model to checkpoints/kth_predrnn_v2_32\model.ckpt-1100
-2025-06-27 16:57:48 itr: 1200
-training loss: 0.8684881
-save model to checkpoints/kth_predrnn_v2_32\model.ckpt-1200
-2025-06-27 16:58:46 itr: 1300
-training loss: 0.486472
-save model to checkpoints/kth_predrnn_v2_32\model.ckpt-1300
+training loss: 0.3702007
+save model to checkpoints/kth_predrnn_32\model.ckpt-100
+2025-06-28 14:00:18 itr: 200
+training loss: 3.7593849
+save model to checkpoints/kth_predrnn_32\model.ckpt-200
+2025-06-28 14:01:16 itr: 300
+training loss: 2.0055134
+save model to checkpoints/kth_predrnn_32\model.ckpt-300
+2025-06-28 14:02:15 itr: 400
+training loss: 4.43881
+save model to checkpoints/kth_predrnn_32\model.ckpt-400
+2025-06-28 14:03:12 itr: 500
+training loss: 2.3287604
+save model to checkpoints/kth_predrnn_32\model.ckpt-500
+2025-06-28 14:04:08 itr: 600
+training loss: 0.077104606
+save model to checkpoints/kth_predrnn_32\model.ckpt-600
+2025-06-28 14:05:03 itr: 700
+training loss: 0.12908849
+save model to checkpoints/kth_predrnn_32\model.ckpt-700
+2025-06-28 14:05:59 itr: 800
+training loss: 0.15708953
+save model to checkpoints/kth_predrnn_32\model.ckpt-800
+2025-06-28 14:06:55 itr: 900
+training loss: 0.22515891
+save model to checkpoints/kth_predrnn_32\model.ckpt-900
+2025-06-28 14:07:53 itr: 1000
+training loss: 0.23017009
+save model to checkpoints/kth_predrnn_32\model.ckpt-1000
+2025-06-28 14:08:51 itr: 1100
+training loss: 0.7824141
+save model to checkpoints/kth_predrnn_32\model.ckpt-1100
+2025-06-28 14:09:49 itr: 1200
+training loss: 0.71595216
+save model to checkpoints/kth_predrnn_32\model.ckpt-1200
+2025-06-28 14:10:47 itr: 1300
+training loss: 0.18232737
+save model to checkpoints/kth_predrnn_32\model.ckpt-1300
+2025-06-28 14:11:45 itr: 1400
+training loss: 0.2571728
+save model to checkpoints/kth_predrnn_32\model.ckpt-1400
+2025-06-28 14:12:43 itr: 1500
+training loss: 0.41956192
+save model to checkpoints/kth_predrnn_32\model.ckpt-1500
+2025-06-28 14:13:41 itr: 1600
+training loss: 0.1433098
+save model to checkpoints/kth_predrnn_32\model.ckpt-1600
+2025-06-28 14:14:38 itr: 1700
+training loss: 0.1335845
+save model to checkpoints/kth_predrnn_32\model.ckpt-1700
+2025-06-28 14:15:36 itr: 1800
+training loss: 0.33888388
+save model to checkpoints/kth_predrnn_32\model.ckpt-1800
+2025-06-28 14:16:34 itr: 1900
+training loss: 0.14705135
+save model to checkpoints/kth_predrnn_32\model.ckpt-1900
+2025-06-28 14:17:32 itr: 2000
+training loss: 0.20585442
+save model to checkpoints/kth_predrnn_32\model.ckpt-2000
+
 
 
 
 64x64:
 training:
-Starting training
-2025-06-27 17:06:22 itr: 100
-training loss: 1.1044767
-save model to checkpoints/kth_predrnn_v2_64\model.ckpt-100
-2025-06-27 17:07:26 itr: 200
-training loss: 0.22478685
-save model to checkpoints/kth_predrnn_v2_64\model.ckpt-200
-2025-06-27 17:08:29 itr: 300
-training loss: 0.42496458
-save model to checkpoints/kth_predrnn_v2_64\model.ckpt-300
-2025-06-27 17:09:32 itr: 400
-training loss: 0.10011776
-save model to checkpoints/kth_predrnn_v2_64\model.ckpt-400
-2025-06-27 17:10:35 itr: 500
-training loss: 0.2237179
-save model to checkpoints/kth_predrnn_v2_64\model.ckpt-500
-2025-06-27 17:11:38 itr: 600
-training loss: 0.35035253
-save model to checkpoints/kth_predrnn_v2_64\model.ckpt-600
-2025-06-27 17:12:40 itr: 700
-training loss: 0.13053967
-save model to checkpoints/kth_predrnn_v2_64\model.ckpt-700
-2025-06-27 17:13:43 itr: 800
-training loss: 0.22799364
-save model to checkpoints/kth_predrnn_v2_64\model.ckpt-800
-2025-06-27 17:14:45 itr: 900
-training loss: 0.12471986
-save model to checkpoints/kth_predrnn_v2_64\model.ckpt-900
-2025-06-27 17:15:48 itr: 1000
-training loss: 0.093710534
-save model to checkpoints/kth_predrnn_v2_64\model.ckpt-1000
+2025-06-28 14:23:44 itr: 100
+training loss: 0.4178168
+save model to checkpoints/kth_predrnn_64\model.ckpt-100
+2025-06-28 14:24:43 itr: 200
+training loss: 0.5679581
+save model to checkpoints/kth_predrnn_64\model.ckpt-200
+2025-06-28 14:25:42 itr: 300
+training loss: 0.038975365
+save model to checkpoints/kth_predrnn_64\model.ckpt-300
+2025-06-28 14:26:42 itr: 400
+training loss: 0.18874201
+save model to checkpoints/kth_predrnn_64\model.ckpt-400
+2025-06-28 14:27:40 itr: 500
+training loss: 0.2987205
+save model to checkpoints/kth_predrnn_64\model.ckpt-500
+2025-06-28 14:28:39 itr: 600
+training loss: 0.11723376
+save model to checkpoints/kth_predrnn_64\model.ckpt-600
+2025-06-28 14:29:38 itr: 700
+training loss: 0.24181129
+save model to checkpoints/kth_predrnn_64\model.ckpt-700
+2025-06-28 14:30:36 itr: 800
+training loss: 0.1521621
+save model to checkpoints/kth_predrnn_64\model.ckpt-800
+2025-06-28 14:31:36 itr: 900
+training loss: 0.057477564
+save model to checkpoints/kth_predrnn_64\model.ckpt-900
+2025-06-28 14:32:35 itr: 1000
+training loss: 0.17262682
+save model to checkpoints/kth_predrnn_64\model.ckpt-1000
+2025-06-28 14:33:34 itr: 1100
+training loss: 0.026273433
+save model to checkpoints/kth_predrnn_64\model.ckpt-1100
+2025-06-28 14:34:33 itr: 1200
+training loss: 0.11572328
+save model to checkpoints/kth_predrnn_64\model.ckpt-1200
+2025-06-28 14:35:31 itr: 1300
+training loss: 0.056036465
+save model to checkpoints/kth_predrnn_64\model.ckpt-1300
+2025-06-28 14:36:30 itr: 1400
+training loss: 0.17356712
+save model to checkpoints/kth_predrnn_64\model.ckpt-1400
+2025-06-28 14:37:29 itr: 1500
+training loss: 0.033584572
+save model to checkpoints/kth_predrnn_64\model.ckpt-1500
+2025-06-28 14:38:27 itr: 1600
+training loss: 0.18830657
+save model to checkpoints/kth_predrnn_64\model.ckpt-1600
+2025-06-28 14:39:26 itr: 1700
+training loss: 0.057049796
+save model to checkpoints/kth_predrnn_64\model.ckpt-1700
+2025-06-28 14:40:25 itr: 1800
+training loss: 0.10967085
+save model to checkpoints/kth_predrnn_64\model.ckpt-1800
+2025-06-28 14:41:24 itr: 1900
+training loss: 0.14454734
+save model to checkpoints/kth_predrnn_64\model.ckpt-1900
+2025-06-28 14:42:23 itr: 2000
+training loss: 0.050067313
+save model to checkpoints/kth_predrnn_64\model.ckpt-2000
+
+
+Vanilla (128x128):
+2025-06-28 12:35:16 itr: 100
+training loss: 0.057943325
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-100
+2025-06-28 12:38:27 itr: 200
+training loss: 0.00821768
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-200
+2025-06-28 12:41:37 itr: 300
+training loss: 0.02179616
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-300
+2025-06-28 12:44:40 itr: 400
+training loss: 0.0039920625
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-400
+2025-06-28 12:47:48 itr: 500
+training loss: 0.0030316897
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-500
+2025-06-28 12:50:50 itr: 600
+training loss: 0.005014921
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-600
+2025-06-28 12:53:52 itr: 700
+training loss: 0.005282106
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-700
+2025-06-28 12:56:53 itr: 800
+training loss: 0.004839384
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-800
+2025-06-28 12:59:54 itr: 900
+training loss: 0.0072780605
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-900
+2025-06-28 13:02:56 itr: 1000
+training loss: 0.002176084
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-1000
+2025-06-28 13:05:57 itr: 1100
+training loss: 0.0044527557
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-1100
+2025-06-28 13:08:58 itr: 1200
+training loss: 0.0034235422
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-1200
+2025-06-28 13:11:59 itr: 1300
+training loss: 0.0041978424
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-1300
+2025-06-28 13:15:01 itr: 1400
+training loss: 0.0027629812
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-1400
+2025-06-28 13:18:02 itr: 1500
+training loss: 0.0025672535
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-1500
+2025-06-28 13:21:03 itr: 1600
+training loss: 0.0035394453
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-1600
+2025-06-28 13:24:04 itr: 1700
+training loss: 0.0043770783
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-1700
+2025-06-28 13:27:06 itr: 1800
+training loss: 0.0010284213
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-1800
+2025-06-28 13:30:07 itr: 1900
+training loss: 0.0022692
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-1900
+2025-06-28 13:33:08 itr: 2000
+training loss: 0.0022204118
+save model to checkpoints/kth_predrnn_vanilla\model.ckpt-2000
 

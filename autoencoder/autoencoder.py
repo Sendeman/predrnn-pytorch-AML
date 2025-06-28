@@ -62,3 +62,109 @@ class AutoencoderModel(nn.Module):
             device: The device to load the model onto
         """
         self.load_state_dict(torch.load(filepath, map_location=device))
+
+
+architectures = {
+    1: {"encoder" : nn.Sequential(
+            nn.Conv2d(1, 32, kernel_size=3, stride=1, padding=1), # 1x128x128-> 32x128x128
+            nn.LeakyReLU(),
+
+            nn.Conv2d(32, 16, kernel_size=3, stride=1, padding=1), # 32x128x128 -> 16x128x128
+            nn.LeakyReLU(),
+
+            nn.Conv2d(16, 16, kernel_size=3, stride=2, padding=1), # 16x128x128 -> 16x64x64
+            nn.LeakyReLU(),
+
+            nn.Conv2d(16, 1, kernel_size=3, stride=1, padding=1), # 16x64x64 -> 1x64x64
+        ),
+        "decoder" : nn.Sequential(
+            nn.ConvTranspose2d(1, 16, kernel_size=3, stride=1, padding=1), # 1x64x64 -> 16x64x64 
+            nn.LeakyReLU(),
+            
+            nn.ConvTranspose2d(16, 16, kernel_size=3, stride=2, padding=1, output_padding=1), # 16x64x64 -> 16x128x128
+            nn.LeakyReLU(),
+
+            nn.ConvTranspose2d(16, 32, kernel_size=3, stride=1, padding=1), # 16x128x128 -> 32x128x128
+            nn.LeakyReLU(),
+
+            nn.ConvTranspose2d(32, 1, kernel_size=3, stride=1, padding=1), # 32x128x128 -> 1x128x128
+            nn.Sigmoid()
+        )
+        },
+    
+
+    2: {"encoder" : nn.Sequential(
+            nn.Conv2d(1, 32, kernel_size=3, stride=1, padding=1), # 1x128x128 -> 32x128x128
+            nn.LeakyReLU(),
+
+            nn.Conv2d(32, 16, kernel_size=3, stride=2, padding=1), # 32x128x128 -> 16x64x64
+            nn.LeakyReLU(),
+
+            nn.Conv2d(16, 16, kernel_size=3, stride=1, padding=1), # 16x64x64-> 16x64x64
+            nn.LeakyReLU(),
+
+            nn.Conv2d(16, 8, kernel_size=3, stride=2, padding=1), # 16x64x64 -> 8x32x32
+            nn.LeakyReLU(),
+
+            nn.Conv2d(8, 1, kernel_size=3, stride=1, padding=1), # 8x32x32-> 1x32x32
+        ),
+        "decoder" : nn.Sequential(
+            nn.ConvTranspose2d(1, 8, kernel_size=3, stride=1, padding=1), # 1x32x32-> 8x32x32
+            nn.LeakyReLU(),
+
+            nn.ConvTranspose2d(8, 16, kernel_size=3, stride=2, padding=1, output_padding=1), # 8x32x32 -> 16x64x64
+            nn.LeakyReLU(),
+
+            nn.ConvTranspose2d(16, 16, kernel_size=3, stride=1, padding=1), # 16x64x64 -> 16x64x64
+            nn.LeakyReLU(),
+
+            nn.ConvTranspose2d(16, 32, kernel_size=3, stride=2, padding=1, output_padding=1), # 16x64x64-> 32x128x128
+            nn.LeakyReLU(),
+
+            nn.ConvTranspose2d(32, 1, kernel_size=3, stride=1, padding=1), # 32x128x128 -> 1x128x128
+            nn.Sigmoid()
+        )
+        },
+    3: {"encoder" : nn.Sequential(
+            nn.Conv2d(1, 32, kernel_size=3, stride=1, padding=1), # 1x128x128 -> 32x128x128
+            nn.LeakyReLU(),
+
+            nn.Conv2d(32, 16, kernel_size=3, stride=2, padding=1), # 32x128x128 -> 16x64x64
+            nn.LeakyReLU(),
+
+            nn.Conv2d(16, 16, kernel_size=3, stride=1, padding=1), # 1x128x128 -> 32x128x128
+            nn.LeakyReLU(),
+
+            nn.Conv2d(16, 8, kernel_size=3, stride=2, padding=1), # 16x64x64 -> 8x32x32
+            nn.LeakyReLU(),
+
+            nn.Conv2d(8, 8, kernel_size=3, stride=1, padding=1), # 1x128x128 -> 32x128x128
+            nn.LeakyReLU(),
+
+            nn.Conv2d(8, 1, kernel_size=3, stride=2, padding=1), # 8x32x32 -> 1x16x16
+        ),
+        "decoder" : nn.Sequential(
+            nn.ConvTranspose2d(1, 8, kernel_size=3, stride=2, padding=1, output_padding=1), # 1x16x16 -> 8x32x32
+            nn.LeakyReLU(),
+
+            nn.ConvTranspose2d(8, 8, kernel_size=3, stride=1, padding=1), # 8x32x32 -> 8x32x32
+            nn.LeakyReLU(),
+
+            nn.ConvTranspose2d(8, 16, kernel_size=3, stride=2, padding=1, output_padding=1), # 8x32x32 -> 16x64x64
+            nn.LeakyReLU(),
+
+            nn.ConvTranspose2d(16, 16, kernel_size=3, stride=1, padding=1), # 16x64x64 -> 16x64x64
+            nn.LeakyReLU(),
+
+            nn.ConvTranspose2d(16, 32, kernel_size=3, stride=2, padding=1, output_padding=1), # 16x64x64 -> 32x128x128
+            nn.LeakyReLU(),
+
+            nn.ConvTranspose2d(32, 32, kernel_size=3, stride=1, padding=1), # 32x128x128-> 32x128x128
+            nn.LeakyReLU(),
+
+            nn.ConvTranspose2d(32, 1, kernel_size=3, stride=1, padding=1), # 32x128x128 -> 1x128x128
+            nn.Sigmoid()
+        )
+        }
+    
+}

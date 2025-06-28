@@ -5,8 +5,8 @@ python -u run.py \
     --dataset_name latent \
     --train_data_paths \\Users\\Paul\\Documents\\School\\Master\\AML\\predrnn-pytorch-AML\\dataset\\encoded\\64 \
     --valid_data_paths \\Users\\Paul\\Documents\\School\\Master\\AML\\predrnn-pytorch-AML\\dataset\\encoded\\64 \
-    --save_dir checkpoints/kth_predrnn_v2_64 \
-    --gen_frm_dir results/kth_predrnn_v2_64 \
+    --save_dir checkpoints/kth_predrnn_64 \
+    --gen_frm_dir results/kth_predrnn_64 \
     --model_name predrnn_v2 \
     --visual 0 \
     --reverse_input 1 \
@@ -26,6 +26,6 @@ python -u run.py \
     --r_exp_alpha 2000 \
     --lr 0.0001 \
     --batch_size 4 \
-    --max_iterations 1000 \
+    --max_iterations 2000 \
     --display_interval 100 \
     --snapshot_interval 100 \

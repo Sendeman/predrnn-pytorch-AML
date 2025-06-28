@@ -5,8 +5,8 @@ python -u run.py \
     --dataset_name latent \
     --train_data_paths \\Users\\Paul\\Documents\\School\\Master\\AML\\predrnn-pytorch-AML\\dataset\\encoded\\32 \
     --valid_data_paths \\Users\\Paul\\Documents\\School\\Master\\AML\\predrnn-pytorch-AML\\dataset\\encoded\\32 \
-    --save_dir checkpoints/kth_predrnn_v2_32 \
-    --gen_frm_dir results/kth_predrnn_v2_32 \
+    --save_dir checkpoints/kth_predrnn_32 \
+    --gen_frm_dir results/kth_predrnn_32 \
     --model_name predrnn_v2 \
     --visual 0 \
     --reverse_input 1 \
