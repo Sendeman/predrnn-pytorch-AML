@@ -32,7 +32,7 @@ class Model(object):
 
     def load(self, checkpoint_path):
         print('load model:', checkpoint_path)
-        stats = torch.load(checkpoint_path)
+        stats = torch.load(checkpoint_path, map_location=self.configs.device)
         self.network.load_state_dict(stats['net_param'])
 
     def train(self, frames, mask):

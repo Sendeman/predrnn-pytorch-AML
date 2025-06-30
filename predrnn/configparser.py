@@ -1,9 +1,10 @@
+import torch
 from argparse import Namespace
 
 def build_predrnn_args(img_width, data_dir, result_checkpoint_dir, dataset_name='latent'):
     return Namespace(
         is_training=0,
-        device='cuda',
+        device='cpu', #torch.device("cuda" if torch.cuda.is_available() else 'mps' if torch.mps.is_available() else "cpu"),
         dataset_name=dataset_name,
         train_data_paths=data_dir,
         valid_data_paths=data_dir,
@@ -30,5 +31,6 @@ def build_predrnn_args(img_width, data_dir, result_checkpoint_dir, dataset_name=
         batch_size=4,
         max_iterations=2000,
         display_interval=100,
-        snapshot_interval=100
+        snapshot_interval=100,
+        visual_path='./decoupling_visual'
     )
