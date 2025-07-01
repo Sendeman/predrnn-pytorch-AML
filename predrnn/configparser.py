@@ -1,7 +1,7 @@
 import torch
 from argparse import Namespace
 
-def build_predrnn_args(img_width, data_dir, result_checkpoint_dir, dataset_name='latent', length=20):
+def build_predrnn_args(img_width, data_dir, result_checkpoint_dir, dataset_name, length: int):
     return Namespace(
         is_training=0,
         device='cpu', #torch.device("cuda" if torch.cuda.is_available() else 'mps' if torch.mps.is_available() else "cpu"),
