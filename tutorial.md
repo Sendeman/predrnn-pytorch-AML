@@ -1,7 +1,7 @@
 # Netwerk trainen
 
 Zorg ervoor dat je alle packages hebt. Ik heb zelf dit gedaan: \
-```conda install python=3.12 numpy pytorch tensorflow matplotlib  scikit-learn scikit-image opencv pillow lpips optuna pandas```
+```conda install python=3.12 numpy pandas matplotlib seaborne pytorch tensorflow scikit-learn scikit-image opencv pillow lpips optuna ```
 
 Zorg ervoor dat je de laatste versie van de autoencoder notebook hebt gedraaid om de data juist te hebben
 
