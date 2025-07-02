@@ -132,13 +132,13 @@ architectures = {
             nn.Conv2d(32, 16, kernel_size=3, stride=2, padding=1), # 32x128x128 -> 16x64x64
             nn.LeakyReLU(),
 
-            nn.Conv2d(16, 16, kernel_size=3, stride=1, padding=1), # 1x128x128 -> 32x128x128
+            nn.Conv2d(16, 16, kernel_size=3, stride=1, padding=1), # 16x64x64 -> 16x64x64
             nn.LeakyReLU(),
 
             nn.Conv2d(16, 8, kernel_size=3, stride=2, padding=1), # 16x64x64 -> 8x32x32
             nn.LeakyReLU(),
 
-            nn.Conv2d(8, 8, kernel_size=3, stride=1, padding=1), # 1x128x128 -> 32x128x128
+            nn.Conv2d(8, 8, kernel_size=3, stride=1, padding=1), # 8x32x32 -> 8x32x32
             nn.LeakyReLU(),
 
             nn.Conv2d(8, 1, kernel_size=3, stride=2, padding=1), # 8x32x32 -> 1x16x16

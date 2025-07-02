@@ -6,3 +6,4 @@ __pycache__/
 autoencoder/models/Current_best.pt
 autoencoder_study.db
 test.py
+predrnn/temp.sh
