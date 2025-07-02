@@ -23,12 +23,15 @@ class Model(object):
 
         self.optimizer = Adam(self.network.parameters(), lr=configs.lr)
 
-    def save(self, itr):
+    def save(self, itr, filename='model.ckpt-'):
         stats = {}
         stats['net_param'] = self.network.state_dict()
-        checkpoint_path = os.path.join(self.configs.save_dir, 'model.ckpt'+'-'+str(itr))
+        if filename == 'model.ckpt-':
+            filename += str(itr)
+        
+        checkpoint_path = os.path.join(self.configs.save_dir, filename)
         torch.save(stats, checkpoint_path)
-        print("save model to %s" % checkpoint_path)
+            
 
     def load(self, checkpoint_path):
         print('load model:', checkpoint_path)
@@ -36,12 +39,21 @@ class Model(object):
         self.network.load_state_dict(stats['net_param'])
 
     def train(self, frames, mask):
+        self.network.train()
         frames_tensor = torch.FloatTensor(frames).to(self.configs.device)
         mask_tensor = torch.FloatTensor(mask).to(self.configs.device)
         self.optimizer.zero_grad()
-        next_frames, loss = self.network(frames_tensor, mask_tensor)
+        __, loss = self.network(frames_tensor, mask_tensor)
         loss.backward()
         self.optimizer.step()
+        return loss.detach().cpu().numpy()
+
+    def validate(self, frames, mask):
+        self.network.eval()
+        with torch.no_grad():
+            frames_tensor = torch.FloatTensor(frames).to(self.configs.device)
+            mask_tensor = torch.FloatTensor(mask).to(self.configs.device)
+            __, loss = self.network(frames_tensor, mask_tensor)
         return loss.detach().cpu().numpy()
 
     def test(self, frames, mask):

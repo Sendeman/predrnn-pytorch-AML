@@ -9,6 +9,7 @@ from core.data_provider import datasets_factory
 from core.models.model_factory import Model
 from core.utils import preprocess
 import core.trainer as trainer
+import datetime
 
 # -----------------------------------------------------------------------------
 parser = argparse.ArgumentParser(description='PyTorch video prediction model - PredRNN')
@@ -177,45 +178,43 @@ def train_wrapper(model):
 
     eta = args.sampling_start_value
 
-    patience = 10 # Number of iterations in which loss must improve to prevent early stop
+    patience = 25 # Number of iterations in which loss must improve to prevent early stop
     epochs_no_improve = 0 # n iterations in which loss did not improve
-    best_loss = 100000 # high starting value
+    best_val_loss = np.inf # high starting value
+    best_training_loss = np.inf
     print('Starting training')
     for itr in range(1, args.max_iterations + 1):
         if train_input_handle.no_batch_left():
             train_input_handle.begin(do_shuffle=True)
+
         ims = train_input_handle.get_batch()
+        
         # PredRNN doet geen regression maar classification achtige shit. Het voorspelt waar de patches toe gaan. 
         # Dit hoeft geen probleem te zijn voor onze latent predRNN
         ims = preprocess.reshape_patch(ims, args.patch_size)
+        
 
         if args.reverse_scheduled_sampling == 1:
             real_input_flag = reserve_schedule_sampling_exp(itr)
         else:
             eta, real_input_flag = schedule_sampling(eta, itr)
 
-        trainer.train(model, ims, real_input_flag, args, itr)
+        
+        train_loss = trainer.train(model, ims, real_input_flag, args, itr)
+        
+        
 
-        if itr % args.snapshot_interval == 0:
-            model.save(itr)
 
-        if  itr % args.test_interval == 0:
-            loss = trainer.test(model, test_input_handle, args, itr)
+        if itr % args.snapshot_interval == 0: # I hate this, but to keep things fast, we validate every 250th iteration
+            
+            if train_loss <= best_training_loss:
+                model.save(itr, filename="best.model")
+                best_training_loss = train_loss
+            
+            print(f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\t{itr}:\ttrain loss: {best_training_loss*1000:.8f} x 1e-3")   
+            test_input_handle.begin(do_shuffle=True)
+        
 
-            ### Early stopping ###
-            if loss > best_loss:
-                epochs_no_improve += 1
-                
-                if epochs_no_improve >= patience:
-                    model.save(itr)
-                    break
-            else:
-                epochs_no_improve = 0
-                best_loss = loss
-            print(f"iteration {itr} no_improve: {epochs_no_improve}")
-            ######
-
-        train_input_handle.next()
 
 
 def test_wrapper(model):
@@ -226,17 +225,18 @@ def test_wrapper(model):
     trainer.test(model, test_input_handle, args, 'test_result')
 
 
-if os.path.exists(args.save_dir):
-    shutil.rmtree(args.save_dir)
-os.makedirs(args.save_dir)
 
-if os.path.exists(args.gen_frm_dir):
-    shutil.rmtree(args.gen_frm_dir)
-os.makedirs(args.gen_frm_dir)
+os.makedirs(args.save_dir, exist_ok=True)
+os.makedirs(args.gen_frm_dir, exist_ok=True)
 
 print('Initializing models')
-
 model = Model(args)
+existing_model = os.path.join(args.save_dir, "best.model")
+
+if os.path.exists(existing_model):
+    model.load(existing_model)
+
+    
 
 if args.is_training:
     train_wrapper(model)

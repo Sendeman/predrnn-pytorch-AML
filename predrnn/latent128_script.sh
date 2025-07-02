@@ -1,5 +1,4 @@
 export CUDA_VISIBLE_DEVICES=0
-cd ..
 python -u run.py \
     --is_training 1 \
     --device cuda \
@@ -27,7 +26,6 @@ python -u run.py \
     --r_exp_alpha 2000 \
     --lr 0.0001 \
     --batch_size 4 \
-    --max_iterations 2000 \
-    --display_interval 100 \
+    --max_iterations 18000 \
+    --display_interval 500 \
     --snapshot_interval 100 \
-#    --pretrained_model ./checkpoints/kth_predrnn_v2/kth_model.ckpt

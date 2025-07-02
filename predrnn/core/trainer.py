@@ -16,11 +16,11 @@ def train(model, ims, real_input_flag, configs, itr):
     if configs.reverse_input:
         ims_rev = np.flip(ims, axis=1).copy()
         cost += model.train(ims_rev, real_input_flag)
-        cost = cost / 2
+        cost /= 2
+    return cost
 
-    if itr % configs.display_interval == 0:
-        print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'itr: ' + str(itr))
-        print('training loss: ' + str(cost))
+    
+    
 
 
 def test(model, test_input_handle, configs, itr):
