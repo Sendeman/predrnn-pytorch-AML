@@ -178,9 +178,6 @@ def train_wrapper(model):
 
     eta = args.sampling_start_value
 
-    patience = 25 # Number of iterations in which loss must improve to prevent early stop
-    epochs_no_improve = 0 # n iterations in which loss did not improve
-    best_val_loss = np.inf # high starting value
     best_training_loss = np.inf
     print('Starting training')
     for itr in range(1, args.max_iterations + 1):

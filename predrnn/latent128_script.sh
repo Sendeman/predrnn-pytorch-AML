@@ -26,6 +26,6 @@ python -u run.py \
     --r_exp_alpha 2000 \
     --lr 0.0001 \
     --batch_size 4 \
-    --max_iterations 18000 \
+    --max_iterations 25000 \
     --display_interval 500 \
     --snapshot_interval 100 \
