@@ -230,8 +230,7 @@ print('Initializing models')
 model = Model(args)
 existing_model = os.path.join(args.save_dir, "best.model")
 
-if os.path.exists(existing_model):
-    model.load(existing_model)
+
 
     
 
